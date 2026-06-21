@@ -10,7 +10,7 @@ let
     name = "vanilla-${lib.our.escapeVersion version}";
     value = callPackage ./derivation.nix {
       inherit (value) version url sha1;
-      jre25_minimal = java_versions.getLatest value.javaVersion;
+      jdk25_headless = java_versions.getLatest value.javaVersion;
     };
   }) versions;
 in
