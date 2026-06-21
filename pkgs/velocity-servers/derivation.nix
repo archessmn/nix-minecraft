@@ -3,7 +3,7 @@
   stdenvNoCC,
   fetchurl,
   nixosTests,
-  jre_headless,
+  jre25_minimal,
   version,
   url,
   sha256,
@@ -22,7 +22,7 @@ stdenvNoCC.mkDerivation {
     cp -v $src $out/lib/minecraft/server.jar
     cat > $out/bin/velocity << EOF
     #!/bin/sh
-    exec ${jre_headless}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
+    exec ${jre25_minimal}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
     EOF
     chmod +x $out/bin/velocity
   '';

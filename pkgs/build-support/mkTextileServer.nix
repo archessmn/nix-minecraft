@@ -3,7 +3,7 @@
   lib,
   writeShellScriptBin,
   minecraft-server,
-  jre_headless,
+  jre25_minimal,
   loaderVersion,
   loaderDrv,
   loader ? (
@@ -15,7 +15,7 @@
   extraJavaArgs ? "",
   extraMinecraftArgs ? "",
 }:
-(writeShellScriptBin "minecraft-server" "exec ${lib.getExe jre_headless} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader}/lib/minecraft/launch.jar nogui ${extraMinecraftArgs}")
+(writeShellScriptBin "minecraft-server" "exec ${lib.getExe jre25_minimal} -D${loader.propertyPrefix}.gameJarPath=${minecraft-server}/lib/minecraft/server.jar ${extraJavaArgs} $@ -jar ${loader}/lib/minecraft/launch.jar nogui ${extraMinecraftArgs}")
 // rec {
   pname = "minecraft-server";
   version = "${minecraft-server.version}-${loader.loaderName}-${loader.loaderVersion}";

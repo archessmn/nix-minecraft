@@ -3,7 +3,7 @@
   stdenvNoCC,
   fetchurl,
   nixosTests,
-  jre_headless,
+  jre25_minimal,
   version,
   url,
   sha1,
@@ -22,7 +22,7 @@ stdenvNoCC.mkDerivation {
 
     cat > $out/bin/minecraft-server << EOF
     #!/bin/sh
-    exec ${jre_headless}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
+    exec ${jre25_minimal}/bin/java \$@ -jar $out/lib/minecraft/server.jar nogui
     EOF
 
     chmod +x $out/bin/minecraft-server
@@ -31,7 +31,7 @@ stdenvNoCC.mkDerivation {
   dontUnpack = true;
 
   passthru = {
-    java = jre_headless;
+    java = jre25_minimal;
     tests = { inherit (nixosTests) minecraft-server; };
     updateScript = ./update.py;
   };

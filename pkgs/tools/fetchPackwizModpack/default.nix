@@ -2,7 +2,7 @@
   lib,
   stdenvNoCC,
   fetchurl,
-  jre_headless,
+  jre25_minimal,
   jq,
   moreutils,
   curl,
@@ -63,7 +63,7 @@ let
         dontUnpack = true;
 
         buildInputs = [
-          jre_headless
+          jre25_minimal
           jq
           moreutils
           curl
